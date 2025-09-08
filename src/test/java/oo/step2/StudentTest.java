@@ -17,17 +17,17 @@ public class StudentTest {
     }
 
     @Test
-    void should_get_true_when_equals_given_two_persons_with_same_id() {
-        Person student = new Person(0, "Tom", 18);
-        Person student1 = new Person(0,"Jonny",19);
+    void should_get_true_when_equals_given_two_students_with_same_id() {
+        Student student = new Student(0, "Tom", 18);
+        Student student1 = new Student(0,"Jonny",19);
         // when equals two same id student then return true
         assertEquals(student,student1);
     }
 
     @Test
-    void should_get_false_when_equals_given_two_persons_with_different_id() {
-        Person student = new Person(0, "Tom", 18);
-        Person student1 = new Person(1,"Jonny",19);
+    void should_get_false_when_equals_given_two_students_with_different_id() {
+        Student student = new Student(0, "Tom", 18);
+        Student student1 = new Student(1,"Jonny",19);
         // when equals two different id student then return true
         assertNotEquals(student,student1);
     }
