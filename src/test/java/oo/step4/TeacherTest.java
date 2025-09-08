@@ -63,7 +63,7 @@ public class TeacherTest {
     }
 
     @Test
-    void should_get_false_when_isTeaching_given_student_assigned_to_class_taught_by_teacher() {
+    void should_get_true_when_isTeaching_given_student_assigned_to_class_taught_by_teacher() {
         KClass kClass = new KClass(123);
         Teacher teacher = new Teacher(1,"Tom",18);
         teacher.assignTo(kClass);
@@ -73,7 +73,16 @@ public class TeacherTest {
         assertTrue(teacher.isTeaching(student));
     }
 
-    // when isTeaching given student in the class taught by teacher then return true
-
-    // when isTeaching given student in any class taught by teacher then return true
+    @Test
+    void should_get_true_when_isTeaching_given_student_assigned_to_class_taught_by_teacher_teaching_multi_classed() {
+        KClass kClass = new KClass(123);
+        KClass kClass1 = new KClass(1234);
+        Teacher teacher = new Teacher(1,"Tom",18);
+        teacher.assignTo(kClass);
+        teacher.assignTo(kClass1);
+        Student student = new Student(2,"Jonny",18);
+        student.join(kClass);
+        // when isTeaching given student not in the class taught by teacher then should return false
+        assertTrue(teacher.isTeaching(student));
+    }
 }
