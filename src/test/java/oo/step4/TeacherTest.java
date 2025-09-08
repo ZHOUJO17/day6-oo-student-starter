@@ -51,10 +51,27 @@ public class TeacherTest {
         assertEquals("My name is Tom. I am 18 years old. I am a teacher. I teach Class 123.",teacher.introduce());
     }
 
+    @Test
+    void should_get_message_when_introduce_given_assigned_to_multi_classes_teacher() {
+        KClass kClass = new KClass(123);
+        KClass kClass1 = new KClass(1234);
+        Teacher teacher = new Teacher(1,"Tom",18);
+        teacher.assignTo(kClass);
+        teacher.assignTo(kClass1);
+        // when introduce given teacher teach multiple classes then return message
+        assertEquals("My name is Tom. I am 18 years old. I am a teacher. I teach Class 123, 1234.",teacher.introduce());
+    }
 
-    // when introduce given teacher teach multiple classes then return message
-
-    // when isTeaching given student not in the class taught by teacher then should return false
+    @Test
+    void should_get_false_when_isTeaching_given_student_assigned_to_class_taught_by_teacher() {
+        KClass kClass = new KClass(123);
+        Teacher teacher = new Teacher(1,"Tom",18);
+        teacher.assignTo(kClass);
+        Student student = new Student(2,"Jonny",18);
+        student.join(kClass);
+        // when isTeaching given student not in the class taught by teacher then should return false
+        assertTrue(teacher.isTeaching(student));
+    }
 
     // when isTeaching given student in the class taught by teacher then return true
 

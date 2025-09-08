@@ -1,12 +1,13 @@
 package oo;
 
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 
 public class Teacher extends Person{
     private static final String TEACHER_LABEL = "I am a teacher.";
-    Set<KClass> klassSet = new HashSet<>();
+    Set<KClass> klassSet = new LinkedHashSet<>();
 
     public void assignTo(KClass kClass){
         klassSet.add(kClass);
@@ -24,7 +25,7 @@ public class Teacher extends Person{
         return klassSet.contains(kClass);
     }
 
-    boolean isTeaching(Student student){
+    public boolean isTeaching(Student student){
         return klassSet.contains(student.getkClass());
     }
 
