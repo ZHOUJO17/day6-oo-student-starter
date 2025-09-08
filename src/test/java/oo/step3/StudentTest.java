@@ -22,14 +22,27 @@ public class StudentTest {
         KClass kClass = new KClass(123);
         Student student = new Student(0, "Tom", 18);
         student.join(kClass);
-        // when student not join klass and isIn klass then return false
+        // when student join klass and isIn klass then return true
         assertTrue(student.isIn(kClass));
     }
 
-    // when student join klass and isIn klass then return false
+    @Test
+    void should_get_true_when_isin_given_joined_two_classes_student() {
+        KClass kClass = new KClass(123);
+        Student student = new Student(0, "Tom", 18);
+        student.join(kClass);
+        KClass kClass1 = new KClass(124);
+        student.join(kClass1);
+        // when student join two klass then return recently klass
+        assertTrue(student.isIn(kClass1));
+    }
 
-    // when student join two klass then return recently klass
-
-    // when introduce a student is in a class then return message with name age and class
-
+    @Test
+    void should_pass_when_introduce_given_joined_class_student() {
+        KClass kClass = new KClass(123);
+        Student student = new Student(0, "Tom", 18);
+        student.join(kClass);
+        // when introduce a student is in a class then return message with name age and class
+        assertEquals("My name is Tom. I am 18 years old. I am a student. I am in class 123.",student.introduce());
+    }
 }

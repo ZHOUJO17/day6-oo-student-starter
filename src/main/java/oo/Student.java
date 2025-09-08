@@ -2,7 +2,7 @@ package oo;
 
 public class Student extends Person{
     private static final String STUDENT_LABEL = "I am a student.";
-    private static final String CLASS_LABEL = "I am in class %d";
+    private static final String CLASS_LABEL = "I am in class %d.";
 
     private KClass kClass;
 
