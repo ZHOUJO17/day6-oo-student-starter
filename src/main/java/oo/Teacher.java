@@ -2,6 +2,7 @@ package oo;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class Teacher extends Person{
     private static final String TEACHER_LABEL = "I am a teacher.";
@@ -33,6 +34,11 @@ public class Teacher extends Person{
 
     @Override
     public String introduce() {
-        return super.introduce() + " " + TEACHER_LABEL;
+        String result = super.introduce() + " " + TEACHER_LABEL;
+        String classPrefix = "I teach Class";
+        if(!klassSet.isEmpty()){
+            result += " " + classPrefix + " " + klassSet.stream().map(kClass -> String.valueOf(kClass.getNumber())).collect(Collectors.joining(", ")) + ".";
+        }
+        return result;
     }
 }

@@ -5,8 +5,11 @@ import oo.Student;
 import oo.Teacher;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashSet;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class TeacherTest {
 
@@ -39,7 +42,15 @@ public class TeacherTest {
         assertTrue(teacher.belongsTo(kClass1));
     }
 
-    //when introduce given teacher teach one class then return message
+    @Test
+    void should_get_message_when_introduce_given_assigned_to_one_class_teacher() {
+        KClass kClass = new KClass(123);
+        Teacher teacher = new Teacher(1,"Tom",18);
+        teacher.assignTo(kClass);
+        //when introduce given teacher teach one class then return message
+        assertEquals("My name is Tom. I am 18 years old. I am a teacher. I teach Class 123.",teacher.introduce());
+    }
+
 
     // when introduce given teacher teach multiple classes then return message
 
