@@ -3,6 +3,7 @@ package oo;
 public class Student extends Person{
     private static final String STUDENT_LABEL = "I am a student.";
     private static final String CLASS_LABEL = "I am in class %d.";
+    private static final String LEADER_LABEL = "I am the leader of class %d.";
 
     private KClass kClass;
 
@@ -12,11 +13,15 @@ public class Student extends Person{
 
     @Override
     public String introduce() {
-        String prefix = super.introduce() + " " + STUDENT_LABEL;
+        String result = super.introduce() + " " + STUDENT_LABEL;
         if(kClass!=null) {
-            return prefix + " " + String.format(CLASS_LABEL,kClass.getNumber());
+            if(kClass.isLeader(this)){
+                result += " " + String.format(LEADER_LABEL,kClass.getNumber());
+            } else{
+                result += " " + String.format(CLASS_LABEL,kClass.getNumber());
+            }
         }
-        return prefix;
+        return result;
     }
 
     public void join(KClass kClass){
