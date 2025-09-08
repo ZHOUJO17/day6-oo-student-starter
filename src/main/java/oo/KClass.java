@@ -1,5 +1,7 @@
 package oo;
 
+import java.io.InvalidObjectException;
+
 public class KClass {
     private static final String NOT_IN_CLASS_ASSIGN_LEADER_ERROR_MESSAGE = "It is not one of us.";
     private int number;
@@ -14,9 +16,10 @@ public class KClass {
         return leader == student;
     }
 
-    public void assignLeader(Student student){
+    public void assignLeader(Student student) {
         if(student.getkClass() != this) {
-            System.out.println(NOT_IN_CLASS_ASSIGN_LEADER_ERROR_MESSAGE);
+            throw new RuntimeException(NOT_IN_CLASS_ASSIGN_LEADER_ERROR_MESSAGE);
+//            System.out.println(NOT_IN_CLASS_ASSIGN_LEADER_ERROR_MESSAGE);
         } else {
             leader = student;
         }

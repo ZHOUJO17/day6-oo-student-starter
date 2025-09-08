@@ -10,7 +10,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class KlassTest {
 
@@ -25,9 +25,13 @@ public class KlassTest {
     void should_print_message_when_assignLeader_given_not_in_class_student() {
         KClass kClass = new KClass(123);
         Student student = new Student(1,"Tom",18);
-        kClass.assignLeader(student);
+//        r
         // when assign leader given student is not in class then print prompt message
-        assertThat(outContent.toString()).contains("It is not one of us.");
+//        assertThat(outContent.toString()).contains("It is not one of us.");
+        RuntimeException runtimeException = assertThrows(RuntimeException.class, () -> {
+            kClass.assignLeader(student);
+        });
+        assertEquals("It is not one of us.",runtimeException.getMessage());
     }
 
 }
