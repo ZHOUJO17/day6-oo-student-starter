@@ -13,7 +13,9 @@ public class Student extends Person{
     @Override
     public String introduce() {
         String prefix = super.introduce() + " " + STUDENT_LABEL;
-        if(kClass!=null) return prefix + " " + String.format(CLASS_LABEL,kClass.getNumber());
+        if(kClass!=null) {
+            return prefix + " " + String.format(CLASS_LABEL,kClass.getNumber());
+        }
         return prefix;
     }
 
