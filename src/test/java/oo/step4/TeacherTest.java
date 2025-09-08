@@ -11,14 +11,21 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class TeacherTest {
 
     @Test
-    void should_get_true_when_isin_given_joined_two_classes_student() {
+    void should_get_false_when_belongsTo_given_not_assigned_class_teacher() {
         KClass kClass = new KClass(123);
         Teacher teacher = new Teacher();
         // when belongsTo give teacher does not teach the class then return false
         assertFalse(teacher.belongsTo(kClass));
     }
 
-    // when belongsTo give teacher teach the class then return true
+    @Test
+    void should_get_true_when_belongsTo_given_assigned_class_teacher() {
+        KClass kClass = new KClass(123);
+        Teacher teacher = new Teacher();
+        teacher.assignTo(kClass);
+        // when belongsTo give teacher teach the class then return true
+        assertTrue(teacher.belongsTo(kClass));
+    }
 
     // when belongsTo given teacher teach multiple classes then return true
 

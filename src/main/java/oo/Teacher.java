@@ -7,7 +7,7 @@ public class Teacher extends Person{
     private static final String TEACHER_LABEL = "I am a teacher.";
     Set<KClass> klassSet = new HashSet<>();
 
-    void assignTo(KClass kClass){
+    public void assignTo(KClass kClass){
         klassSet.add(kClass);
     }
 
