@@ -1,7 +1,21 @@
 package oo.step3;
 
+import oo.KClass;
+import oo.Person;
+import oo.Student;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
+
 public class StudentTest {
 
+    @Test
+    void should_get_false_when_introduce_given_student() {
+        KClass kClass = new KClass(123);
+        Student student = new Student(0, "Tom", 18);
+        // when student not join klass and isIn klass then return false
+        assertFalse(student.isIn(kClass));
+    }
     // when student not join klass and isIn klass then return false
 
     // when student join klass and isIn klass then return false
