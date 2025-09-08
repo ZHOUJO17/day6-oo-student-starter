@@ -1,8 +1,22 @@
 package oo.step4;
 
+import oo.KClass;
+import oo.Student;
+import oo.Teacher;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 public class TeacherTest {
 
-    // when belongsTo give teacher does not teach the class then return false
+    @Test
+    void should_get_true_when_isin_given_joined_two_classes_student() {
+        KClass kClass = new KClass(123);
+        Teacher teacher = new Teacher();
+        // when belongsTo give teacher does not teach the class then return false
+        assertFalse(teacher.belongsTo(kClass));
+    }
 
     // when belongsTo give teacher teach the class then return true
 

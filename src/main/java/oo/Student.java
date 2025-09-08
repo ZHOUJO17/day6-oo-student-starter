@@ -26,4 +26,8 @@ public class Student extends Person{
     public boolean isIn(KClass kClass){
         return this.kClass != null && this.kClass.getNumber() == kClass.getNumber();
     }
+
+    public KClass getkClass() {
+        return kClass;
+    }
 }
