@@ -27,7 +27,17 @@ public class TeacherTest {
         assertTrue(teacher.belongsTo(kClass));
     }
 
-    // when belongsTo given teacher teach multiple classes then return true
+    @Test
+    void should_get_true_when_belongsTo_given_assigned_to_multi_classes_teacher() {
+        KClass kClass = new KClass(123);
+        KClass kClass1 = new KClass(124);
+        Teacher teacher = new Teacher();
+        teacher.assignTo(kClass);
+        teacher.assignTo(kClass1);
+        // when belongsTo given teacher teach multiple classes then return true
+        assertTrue(teacher.belongsTo(kClass));
+        assertTrue(teacher.belongsTo(kClass1));
+    }
 
     //when introduce given teacher teach one class then return message
 
